@@ -36,31 +36,18 @@ namespace TestNinja.UnitTests
             Assert.That(result, Is.EqualTo(3));
         }
 
+        // parameterized testmethod
         [Test]
-        public void Max_FirstArgumentIsGreater_ReturnsFirstArgument()
+        [TestCase(2,1,2)]
+        [TestCase(1,2,2)]
+        [TestCase(1,1,1)]
+
+        public void Max_WhenCalled_ReturnTheGreaterArgument(int a, int b, int expectedResult)
         {
-//            var math = new Math();
-            var result = _math.Max(2, 1);
-            Assert.That(result, Is.EqualTo(2));
+            var result = _math.Max(a, b);
+            Assert.That(result, Is.EqualTo(expectedResult));
 
         }
-        [Test]
-        public void Max_SecondArgumentIsGreater_ReturnsSecondArgument()
-        {
-//            var math = new Math();
-            var result = _math.Max(1, 2);
-            Assert.That(result, Is.EqualTo(2));
-
-        }
-        [Test]
-        public void Max_ArgumentsAreEqual_ReturnsSameArgument()
-        {
-//            var math = new Math();
-            var result = _math.Max(1, 1);
-            Assert.That(result, Is.EqualTo(1));
-
-        }
-
 
     }
 }
